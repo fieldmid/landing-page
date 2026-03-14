@@ -1,7 +1,7 @@
 "use client"
 import { cn } from '../lib/utils'
 import { FarmIcon } from '@phosphor-icons/react'
-import { FieldMindText } from '@/components/fieldmind-text'
+import { FieldMidText } from '@/components/fieldmid-text'
 
 export const Logo = ({ className }: { className?: string }) => {
     return (
@@ -9,7 +9,7 @@ export const Logo = ({ className }: { className?: string }) => {
             <span className="flex size-8 items-center justify-center rounded-lg bg-primary">
                 <FarmIcon weight="fill" className="size-5 text-primary-foreground" />
             </span>
-            <FieldMindText className="text-lg font-medium" />
+            <FieldMidText className="text-lg font-medium" />
         </span>
     )
 }

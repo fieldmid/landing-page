@@ -1,8 +1,8 @@
 import { Logo } from '@/components/logo'
-import { FieldMindText } from '@/components/fieldmind-text'
+import { FieldMidText } from '@/components/fieldmid-text'
 import Link from 'next/link'
 
-const githubUrl = 'https://github.com/zzorgg/fieldmind'
+const githubUrl = 'https://github.com/zzorgg/fieldmid'
 
 const links = [
     {
@@ -56,13 +56,13 @@ export default function FooterSection() {
 
                 <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-dashed py-6">
                     <small className="text-muted-foreground text-sm">
-                        &copy; {new Date().getFullYear()} <FieldMindText className="text-sm" /> | PowerSync AI Hackathon 2026
+                        &copy; {new Date().getFullYear()} <FieldMidText className="text-sm" /> | PowerSync AI Hackathon 2026
                     </small>
                     <Link
                         href={githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Star FieldMind on GitHub"
+                        aria-label="Star FieldMid on GitHub"
                         className="group inline-flex items-center gap-3 rounded-full border border-dashed bg-muted/40 px-4 py-2 text-sm text-muted-foreground transition-colors duration-150 hover:border-primary/40 hover:bg-muted/70 hover:text-foreground">
                         <span>Like this project? Star it on GitHub.</span>
                         <svg className="size-5 transition-colors duration-150 group-hover:text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

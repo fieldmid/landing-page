@@ -3,7 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import type { Variants } from 'motion/react'
 import { Button } from '@/components/ui/button'
-import { FieldMindText } from '@/components/fieldmind-text'
+import { FieldMidText } from '@/components/fieldmid-text'
 import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from './header'
@@ -66,7 +66,7 @@ export default function HeroSection() {
                                     Field reporting that still works when the internet doesn&apos;t
                                 </TextEffect>
                                 <p className="mt-6 mx-auto max-w-2xl text-pretty text-lg text-muted-foreground">
-                                    <FieldMindText className="text-lg" /> helps crews record incidents by voice, get a quick on-device triage, and sync everything once they are back online. It is built for places where coverage comes and goes.
+                                    <FieldMidText className="text-lg" /> helps crews record incidents by voice, get a quick on-device triage, and sync everything once they are back online. It is built for places where coverage comes and goes.
                                 </p>
 
                                 <AnimatedGroup

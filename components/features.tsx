@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { FieldMindText } from '@/components/fieldmind-text'
+import { FieldMidText } from '@/components/fieldmid-text'
 import { cn } from '@/lib/utils'
 import { WifiSlash, Microphone, ArrowsClockwise, Brain, ShieldCheck, ChartBar } from '@phosphor-icons/react/dist/ssr'
 import { type ReactNode, type ElementType } from 'react'
@@ -11,7 +11,7 @@ export default function Features() {
                 <div className="mx-auto mb-12 max-w-2xl text-center">
                     <h2 className="text-balance text-3xl font-semibold md:text-4xl">Made for places where signal is never guaranteed</h2>
                     <p className="mt-4 text-lg text-muted-foreground">
-                        From mines to remote sites, <FieldMindText className="text-lg" /> keeps incident reporting moving even when the network drops.
+                        From mines to remote sites, <FieldMidText className="text-lg" /> keeps incident reporting moving even when the network drops.
                     </p>
                 </div>
                 <div className="mx-auto grid gap-4 lg:grid-cols-2">

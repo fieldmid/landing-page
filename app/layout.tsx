@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: "fieldmind - Field reporting that works offline",
-  description: "fieldmind helps teams log incidents offline, triage them on the device, and sync everything when a connection comes back.",
+  title: "fieldmid - Field reporting that works offline",
+  description: "fieldmid helps teams log incidents offline, triage them on the device, and sync everything when a connection comes back.",
 }
 
 export default function RootLayout({
