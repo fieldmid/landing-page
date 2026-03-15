@@ -89,11 +89,11 @@ export default function HeroSection() {
                                     className="mt-10 flex flex-wrap items-center justify-center gap-2">
                                     <div
                                         key={1}
-                                        className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border border-dashed p-0.5">
+                                        >
                                         <Button
                                             asChild
                                             size="lg"
-                                            className="rounded-xl px-5 text-base">
+                                            className="px-5 text-base">
                                             <Link href={`${CORE_URL}/sign-up?mode=individual`}>
                                                 <span className="text-nowrap">Get Started as Individual</span>
                                             </Link>
@@ -104,19 +104,9 @@ export default function HeroSection() {
                                         asChild
                                         size="lg"
                                         variant="outline"
-                                        className="h-10.5 rounded-xl px-5 text-base">
+                                        className="px-5 text-base">
                                         <Link href={`${CORE_URL}/sign-up?mode=organization`}>
                                             <span className="text-nowrap">Create Organization Workspace</span>
-                                        </Link>
-                                    </Button>
-                                    <Button
-                                        key={3}
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="h-10.5 rounded-xl px-5 text-base">
-                                        <Link href="#how-it-works">
-                                            <span className="text-nowrap">See How It Works</span>
                                         </Link>
                                     </Button>
                                 </AnimatedGroup>

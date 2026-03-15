@@ -36,7 +36,7 @@ export const HeroHeader = () => {
                         <div className="hidden items-center gap-3 sm:flex">
                             <ThemeToggle />
                             <Button asChild size="lg">
-                                <Link href={`${CORE_URL}/sign-up`}>
+                                <Link href={`${CORE_URL}/`}>
                                     <span>Get Started</span>
                                 </Link>
                             </Button>
