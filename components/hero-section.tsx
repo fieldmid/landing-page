@@ -10,6 +10,8 @@ import { HeroHeader } from './header'
 import TechnologyCloud from './technology-cloud'
 import { WifiSlashIcon, LightningIcon, ArrowsClockwiseIcon } from '@phosphor-icons/react'
 
+const CORE_URL = process.env.NEXT_PUBLIC_CORE_URL!
+
 const transitionVariants: { item: Variants } = {
     item: {
         hidden: {
@@ -68,6 +70,9 @@ export default function HeroSection() {
                                 <p className="mt-6 mx-auto max-w-2xl text-pretty text-lg text-muted-foreground">
                                     <FieldMidText className="text-lg" /> helps crews record incidents by voice, get a quick on-device triage, and sync everything once they are back online. It is built for places where coverage comes and goes.
                                 </p>
+                                <p className="mt-3 mx-auto max-w-2xl text-pretty text-sm text-muted-foreground">
+                                    Start as an individual operator or create an organization workspace where the creator becomes the first admin and can assign supervisors later.
+                                </p>
 
                                 <AnimatedGroup
                                     variants={{
@@ -81,7 +86,7 @@ export default function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                    className="mt-10 flex items-center justify-center gap-2">
+                                    className="mt-10 flex flex-wrap items-center justify-center gap-2">
                                     <div
                                         key={1}
                                         className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border border-dashed p-0.5">
@@ -89,13 +94,23 @@ export default function HeroSection() {
                                             asChild
                                             size="lg"
                                             className="rounded-xl px-5 text-base">
-                                            <Link href="#features">
-                                                <span className="text-nowrap">Explore Features</span>
+                                            <Link href={`${CORE_URL}/sign-up?mode=individual`}>
+                                                <span className="text-nowrap">Get Started as Individual</span>
                                             </Link>
                                         </Button>
                                     </div>
                                     <Button
                                         key={2}
+                                        asChild
+                                        size="lg"
+                                        variant="outline"
+                                        className="h-10.5 rounded-xl px-5 text-base">
+                                        <Link href={`${CORE_URL}/sign-up?mode=organization`}>
+                                            <span className="text-nowrap">Create Organization Workspace</span>
+                                        </Link>
+                                    </Button>
+                                    <Button
+                                        key={3}
                                         asChild
                                         size="lg"
                                         variant="ghost"
