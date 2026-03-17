@@ -21,6 +21,13 @@ const links = [
             { title: 'Expo', href: '#tech-stack' },
         ],
     },
+    {
+        group: 'Legal',
+        items: [
+            { title: 'Privacy Policy', href: '/privacy-policy' },
+            { title: 'Terms of Service', href: '/terms-of-service' },
+        ],
+    },
 ]
 
 export default function FooterSection() {
@@ -37,7 +44,7 @@ export default function FooterSection() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
                         {links.map((link, index) => (
                             <div key={index} className="space-y-3 text-sm">
                                 <span className="block font-medium">{link.group}</span>
