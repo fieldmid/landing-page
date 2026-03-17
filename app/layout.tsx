@@ -8,8 +8,46 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: "fieldmid - Field reporting that works offline",
-  description: "fieldmid helps teams log incidents offline, triage them on the device, and sync everything when a connection comes back.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://fieldmid.com"),
+  title: {
+    default: "FieldMid | Offline-First Field Incident Reporting",
+    template: "%s | FieldMid",
+  },
+  description:
+    "FieldMid helps field teams report incidents offline, capture media evidence, and sync operations data securely when connectivity returns.",
+  keywords: [
+    "offline incident reporting",
+    "field operations",
+    "safety compliance",
+    "supabase",
+    "powersync",
+    "react native",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: "FieldMid | Offline-First Field Incident Reporting",
+    description:
+      "Capture incidents and media in low-connectivity environments with role-based workflows for workers, supervisors, and admins.",
+    siteName: "FieldMid",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FieldMid | Offline-First Field Incident Reporting",
+    description:
+      "Offline-ready incident reporting for field teams with realtime sync, escalation, and compliance visibility.",
+  },
+  icons: {
+    icon: [
+      { url: "/web/favicon.ico" },
+      { url: "/web/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/web/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/web/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 }
 
 export default function RootLayout({
