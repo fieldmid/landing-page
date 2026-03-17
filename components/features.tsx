@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { FieldMidText } from '@/components/fieldmid-text'
 import { cn } from '@/lib/utils'
-import { WifiSlash, Microphone, ArrowsClockwise, Brain, ShieldCheck, ChartBar } from '@phosphor-icons/react/dist/ssr'
+import { WifiSlash, ArrowsClockwise, Brain, ChartBar } from '@phosphor-icons/react/dist/ssr'
 import { type ReactNode, type ElementType } from 'react'
 
 export default function Features() {
@@ -137,5 +137,4 @@ function FeaturePill({ label }: { label: string }) {
         </span>
     )
 }
-
 
