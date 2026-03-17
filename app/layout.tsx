@@ -41,6 +41,7 @@ export const metadata: Metadata = {
       "Offline-ready incident reporting for field teams with realtime sync, escalation, and compliance visibility.",
   },
   icons: {
+    shortcut: [{ url: "/web/favicon.ico" }],
     icon: [
       { url: "/web/favicon.ico" },
       { url: "/web/icon-192.png", sizes: "192x192", type: "image/png" },
