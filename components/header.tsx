@@ -28,9 +28,14 @@ export const HeroHeader = () => {
                         </Link>
 
                         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center sm:flex">
-                            <Link href="/contact" className={navLinkClassName}>
-                                Contact
-                            </Link>
+                            <div className="flex items-center gap-4">
+                                <Link href="/cli" className={navLinkClassName}>
+                                    CLI
+                                </Link>
+                                <Link href="/contact" className={navLinkClassName}>
+                                    Contact
+                                </Link>
+                            </div>
                         </div>
 
                         <div className="hidden items-center gap-3 sm:flex">
@@ -54,6 +59,9 @@ export const HeroHeader = () => {
                             <div className="absolute right-0 top-full z-50 mt-2 w-56 rounded-lg border bg-background p-4 shadow-lg sm:hidden">
                                 <div className="flex flex-col gap-3">
                                     <ThemeToggle />
+                                    <Button asChild size="sm" variant="ghost" className="w-full">
+                                        <Link href="/cli" onClick={() => setMenuState(false)}>CLI</Link>
+                                    </Button>
                                     <Button asChild size="sm" variant="ghost" className="w-full">
                                         <Link href="/contact" onClick={() => setMenuState(false)}>Contact</Link>
                                     </Button>
