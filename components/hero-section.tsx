@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import Link from 'next/link'
 import type { Variants } from 'motion/react'
 import { Button } from '@/components/ui/button'
@@ -8,7 +7,7 @@ import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from './header'
 import TechnologyCloud from './technology-cloud'
-import { WifiSlashIcon, LightningIcon, ArrowsClockwiseIcon } from '@phosphor-icons/react'
+import { WifiSlashIcon } from '@phosphor-icons/react'
 
 const CORE_URL = process.env.NEXT_PUBLIC_CORE_URL!
 
@@ -36,10 +35,10 @@ export default function HeroSection() {
     return (
         <>
             <HeroHeader />
-            <main className="relative overflow-hidden">
-                <section className="min-h-screen">
-                    <div className="relative flex min-h-screen flex-col justify-center pt-24 pb-10 md:pb-12">
-                        <div className="mx-auto max-w-5xl px-6">
+            <main className="relative h-screen overflow-hidden">
+                <section className="h-full">
+                    <div className="relative flex h-full flex-col pt-24">
+                        <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-6">
                             <div className="text-center sm:mx-auto lg:mx-auto lg:mt-0">
                                 <AnimatedGroup
                                     variants={{
@@ -64,10 +63,10 @@ export default function HeroSection() {
                                     preset="fade-in-blur"
                                     speedSegment={0.3}
                                     as="h1"
-                                    className="mt-6 mx-auto max-w-3xl text-balance text-5xl font-medium md:text-6xl lg:mt-10">
+                                    className="mx-auto mt-5 max-w-3xl text-balance text-4xl font-medium md:mt-7 md:text-5xl lg:text-6xl">
                                     Field reporting that still works when the internet doesn&apos;t
                                 </TextEffect>
-                                <p className="mt-6 mx-auto max-w-2xl text-pretty text-lg text-muted-foreground">
+                                <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-muted-foreground md:text-lg">
                                     <FieldMidText className="text-lg" /> helps crews record incidents by voice, get a quick on-device triage, and sync everything once they are back online. It is built for places where coverage comes and goes.
                                 </p>
                                 <p className="mt-3 mx-auto max-w-2xl text-pretty text-sm text-muted-foreground">
@@ -86,7 +85,7 @@ export default function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                    className="mt-10 flex flex-wrap items-center justify-center gap-2">
+                                    className="mt-7 flex flex-wrap items-center justify-center gap-2 md:mt-8">
                                     <div
                                         key={1}
                                         >
@@ -113,65 +112,12 @@ export default function HeroSection() {
                             </div>
                         </div>
 
-                        <AnimatedGroup
-                            variants={{
-                                container: {
-                                    visible: {
-                                        transition: {
-                                            staggerChildren: 0.05,
-                                            delayChildren: 0.75,
-                                        },
-                                    },
-                                },
-                                ...transitionVariants,
-                            }}>
-                            <div className="relative mt-10 px-2 sm:mt-12 md:mt-14">
-                                <div className="mx-auto max-w-5xl">
-                                    <div className="grid gap-4 sm:grid-cols-3">
-                                        <HeroStat
-                                            icon={<WifiSlashIcon weight="bold" className="size-5 text-primary" />}
-                                            value="100%"
-                                            label="Offline capable"
-                                        />
-                                        <HeroStat
-                                            icon={<LightningIcon weight="bold" className="size-5 text-primary" />}
-                                            value="<2s"
-                                            label="On-device AI triage"
-                                        />
-                                        <HeroStat
-                                            icon={<ArrowsClockwiseIcon weight="bold" className="size-5 text-primary" />}
-                                            value="0"
-                                            label="Data loss with PowerSync"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </AnimatedGroup>
-
-                        <div className="mt-10 md:mt-12">
+                        <div className="mt-auto pb-4 md:pb-6">
                             <TechnologyCloud />
                         </div>
                     </div>
                 </section>
             </main>
         </>
-    )
-}
-
-function HeroStat({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
-    return (
-        <div className="group relative flex items-center gap-4 rounded-none border border-dashed bg-card p-5 shadow-zinc-950/5">
-            <span className="border-primary absolute -left-px -top-px block size-2 border-l-2 border-t-2"></span>
-            <span className="border-primary absolute -right-px -top-px block size-2 border-r-2 border-t-2"></span>
-            <span className="border-primary absolute -bottom-px -left-px block size-2 border-b-2 border-l-2"></span>
-            <span className="border-primary absolute -bottom-px -right-px block size-2 border-b-2 border-r-2"></span>
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                {icon}
-            </div>
-            <div>
-                <p className="text-2xl font-bold">{value}</p>
-                <p className="text-sm text-muted-foreground">{label}</p>
-            </div>
-        </div>
     )
 }
