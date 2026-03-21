@@ -1,6 +1,10 @@
+'use client'
 import Image from 'next/image'
+import { useState } from 'react'
 import { InfiniteSlider } from '@/components/ui/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
+import { Skeleton } from '@/components/ui/skeleton'
+import { cn } from '@/lib/utils'
 
 const technologyLogos = [
     {
@@ -115,15 +119,24 @@ type TechnologyLogoProps = {
 }
 
 function TechnologyLogo({ name, src, lightSrc, darkSrc, width, height }: TechnologyLogoProps) {
+    const [loaded, setLoaded] = useState(false)
+
     return (
-        <>
+        <div className="relative flex shrink-0 items-center" style={{ width, height: 32 }}>
+            {!loaded && (
+                <Skeleton className="absolute inset-0 h-8 rounded-sm" />
+            )}
             {src ? (
                 <Image
                     src={src}
                     alt={name}
                     width={width}
                     height={height}
-                    className="h-8 w-auto shrink-0 object-contain"
+                    className={cn(
+                        'h-8 w-auto object-contain transition-opacity duration-300',
+                        loaded ? 'opacity-100' : 'opacity-0'
+                    )}
+                    onLoad={() => setLoaded(true)}
                 />
             ) : (
                 <>
@@ -132,17 +145,25 @@ function TechnologyLogo({ name, src, lightSrc, darkSrc, width, height }: Technol
                         alt={name}
                         width={width}
                         height={height}
-                        className="h-8 w-auto shrink-0 object-contain dark:hidden"
+                        className={cn(
+                            'h-8 w-auto object-contain dark:hidden transition-opacity duration-300',
+                            loaded ? 'opacity-100' : 'opacity-0'
+                        )}
+                        onLoad={() => setLoaded(true)}
                     />
                     <Image
                         src={darkSrc!}
                         alt={name}
                         width={width}
                         height={height}
-                        className="hidden h-8 w-auto shrink-0 object-contain dark:block"
+                        className={cn(
+                            'hidden h-8 w-auto object-contain dark:block transition-opacity duration-300',
+                            loaded ? 'opacity-100' : 'opacity-0'
+                        )}
+                        onLoad={() => setLoaded(true)}
                     />
                 </>
             )}
-        </>
+        </div>
     )
 }

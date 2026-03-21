@@ -1,9 +1,12 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { ArrowSquareOutIcon, HeartIcon } from '@phosphor-icons/react'
 import { HeroHeader } from '@/components/header'
 import FooterSection from '@/components/footer'
+import { Skeleton } from '@/components/ui/skeleton'
+import { cn } from '@/lib/utils'
 
 const technologies = [
     {
@@ -80,6 +83,37 @@ const technologies = [
     },
 ]
 
+function TechLogoImage({ lightSrc, darkSrc, name, width, height }: {
+    lightSrc: string
+    darkSrc: string
+    name: string
+    width: number
+    height: number
+}) {
+    const [loaded, setLoaded] = useState(false)
+    return (
+        <div className="relative flex h-7 items-center" style={{ width }}>
+            {!loaded && <Skeleton className="absolute inset-0 h-7 rounded-sm" />}
+            <Image
+                src={lightSrc}
+                alt={name}
+                width={width}
+                height={height}
+                className={cn('h-7 w-auto object-contain dark:hidden transition-opacity duration-300', loaded ? 'opacity-100' : 'opacity-0')}
+                onLoad={() => setLoaded(true)}
+            />
+            <Image
+                src={darkSrc}
+                alt={name}
+                width={width}
+                height={height}
+                className={cn('hidden h-7 w-auto object-contain dark:block transition-opacity duration-300', loaded ? 'opacity-100' : 'opacity-0')}
+                onLoad={() => setLoaded(true)}
+            />
+        </div>
+    )
+}
+
 const VercelLogo = ({ className }: { className?: string }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -123,22 +157,13 @@ export default function CreditsPage() {
                                     <span className="border-primary absolute -bottom-px -right-px block size-2 border-b-2 border-r-2" />
 
                                     <div className="flex items-start justify-between gap-2">
-                                        <div className="flex h-8 items-center">
-                                            <Image
-                                                src={tech.lightSrc}
-                                                alt={tech.name}
-                                                width={tech.width}
-                                                height={tech.height}
-                                                className="h-7 w-auto object-contain dark:hidden"
-                                            />
-                                            <Image
-                                                src={tech.darkSrc}
-                                                alt={tech.name}
-                                                width={tech.width}
-                                                height={tech.height}
-                                                className="hidden h-7 w-auto object-contain dark:block"
-                                            />
-                                        </div>
+                                        <TechLogoImage
+                                            lightSrc={tech.lightSrc}
+                                            darkSrc={tech.darkSrc}
+                                            name={tech.name}
+                                            width={tech.width}
+                                            height={tech.height}
+                                        />
                                         <ArrowSquareOutIcon
                                             weight="bold"
                                             className="size-4 shrink-0 text-muted-foreground/40 transition-colors duration-150 group-hover:text-primary"

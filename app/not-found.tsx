@@ -1,42 +1,55 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { ArrowRightIcon } from '@phosphor-icons/react'
-
 import { Button } from '../components/ui/button'
+import { Skeleton } from '../components/ui/skeleton'
+import { cn } from '../lib/utils'
 
 export default function NotFoundPage() {
+    const [imageLoaded, setImageLoaded] = useState(false)
+
     return (
         <div className="mx-auto flex min-h-dvh flex-col items-center justify-center gap-8 p-8 md:gap-12 md:p-16">
             <div className="relative w-full max-w-6xl overflow-hidden rounded-xl">
+                {!imageLoaded && (
+                    <Skeleton className="aspect-video w-full rounded-xl" />
+                )}
                 <Image
                     src="/nathan-dumlao-a3ra9eXUjvo-unsplash.jpg"
                     alt="Closed white steel gate"
                     width={1600}
                     height={900}
-                    className="aspect-video w-full object-cover"
+                    className={cn(
+                        'aspect-video w-full object-cover transition-opacity duration-500',
+                        imageLoaded ? 'opacity-100' : 'opacity-0'
+                    )}
                     priority
+                    onLoad={() => setImageLoaded(true)}
                 />
-                <p className="absolute bottom-3 right-3 rounded-md bg-background/80 px-3 py-2 text-right text-xs text-foreground shadow-sm backdrop-blur-sm md:bottom-4 md:right-4">
-                    Photo by{' '}
-                    <a
-                        href="https://unsplash.com/@nate_dumlao?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-4"
-                    >
-                        Nathan Dumlao
-                    </a>{' '}
-                    on{' '}
-                    <a
-                        href="https://unsplash.com/photos/closed-white-steel-gate-a3ra9eXUjvo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-4"
-                    >
-                        Unsplash
-                    </a>
-                </p>
+                {imageLoaded && (
+                    <p className="absolute bottom-3 right-3 rounded-md bg-background/80 px-3 py-2 text-right text-xs text-foreground shadow-sm backdrop-blur-sm md:bottom-4 md:right-4">
+                        Photo by{' '}
+                        <a
+                            href="https://unsplash.com/@nate_dumlao?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="underline underline-offset-4"
+                        >
+                            Nathan Dumlao
+                        </a>{' '}
+                        on{' '}
+                        <a
+                            href="https://unsplash.com/photos/closed-white-steel-gate-a3ra9eXUjvo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="underline underline-offset-4"
+                        >
+                            Unsplash
+                        </a>
+                    </p>
+                )}
             </div>
             <div className="text-center">
                 <h1 className="mb-2 text-3xl font-bold">Page Not Found</h1>
