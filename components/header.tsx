@@ -41,33 +41,33 @@ export const HeroHeader = () => {
                         <div className="hidden items-center gap-3 sm:flex">
                             <ThemeToggle />
                             <Button asChild size="lg">
-                                <Link href={`${CORE_URL}/`}>
+                                <Link href={`${CORE_URL}/sign-up`}>
                                     <span>Get Started</span>
                                 </Link>
                             </Button>
                         </div>
 
-                        <button
-                            onClick={() => setMenuState(!menuState)}
-                            aria-label={menuState ? 'Close Menu' : 'Open Menu'}
-                            className="relative z-20 -m-2.5 block cursor-pointer p-2.5 sm:hidden">
-                            <ListIcon className={cn('size-6 duration-200', menuState && 'rotate-180 scale-0 opacity-0')} />
-                            <XIcon className={cn('absolute inset-0 m-auto size-6 duration-200', !menuState && '-rotate-180 scale-0 opacity-0')} />
-                        </button>
+                        <div className="flex items-center gap-1 sm:hidden">
+                            <ThemeToggle />
+                            <button
+                                onClick={() => setMenuState(!menuState)}
+                                aria-label={menuState ? 'Close Menu' : 'Open Menu'}
+                                className="relative z-20 -m-2.5 cursor-pointer p-2.5">
+                                <ListIcon className={cn('size-6 duration-200', menuState && 'rotate-180 scale-0 opacity-0')} />
+                                <XIcon className={cn('absolute inset-0 m-auto size-6 duration-200', !menuState && '-rotate-180 scale-0 opacity-0')} />
+                            </button>
+                        </div>
 
                         {menuState && (
-                            <div className="absolute right-0 top-full z-50 mt-2 w-56 rounded-lg border bg-background p-4 shadow-lg sm:hidden">
-                                <div className="flex flex-col gap-3">
-                                    <ThemeToggle />
-                                    <Button asChild size="sm" variant="ghost" className="w-full">
+                            <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg border border-dashed bg-background p-3 shadow-lg sm:hidden">
+                                <div className="flex flex-col gap-2">
+                                    <Button asChild size="sm" variant="ghost" className="w-full justify-start">
                                         <Link href="/cli" onClick={() => setMenuState(false)}>CLI</Link>
                                     </Button>
-                                    <Button asChild size="sm" variant="ghost" className="w-full">
+                                    <Button asChild size="sm" variant="ghost" className="w-full justify-start">
                                         <Link href="/contact" onClick={() => setMenuState(false)}>Contact</Link>
                                     </Button>
-                                    <Button asChild size="sm" variant="ghost" className="w-full">
-                                        <Link href={`${CORE_URL}/login`} onClick={() => setMenuState(false)}>Log In</Link>
-                                    </Button>
+                                    <hr className="border-dashed" />
                                     <Button asChild size="sm" className="w-full">
                                         <Link href={`${CORE_URL}/sign-up`} onClick={() => setMenuState(false)}>Get Started</Link>
                                     </Button>

@@ -1,9 +1,9 @@
 import { FieldMidText } from '@/components/fieldmid-text'
-import { Lightning } from '@phosphor-icons/react/dist/ssr'
+import { LightningIcon } from '@phosphor-icons/react'
 
 export default function TestimonialsSection() {
     return (
-        <section className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
+        <section className="bg-muted/30 py-16 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="mx-auto max-w-3xl text-center">
                     <blockquote>
@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
 
                         <div className="mt-12 flex items-center justify-center gap-4">
                             <div className="flex size-10 items-center justify-center rounded-full bg-primary">
-                                <Lightning weight="fill" className="size-5 text-primary-foreground" />
+                                <LightningIcon weight="fill" className="size-5 text-primary-foreground" />
                             </div>
                             <div className="space-y-0.5 text-left">
                                 <cite className="font-medium not-italic"><FieldMidText className="text-base" /> team</cite>

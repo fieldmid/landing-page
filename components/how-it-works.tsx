@@ -1,31 +1,32 @@
-import { WifiSlash, ArrowsClockwise, CloudArrowUp, Monitor } from '@phosphor-icons/react/dist/ssr'
+"use client"
+import { WifiSlashIcon, ArrowsClockwiseIcon, CloudArrowUpIcon, MonitorIcon } from '@phosphor-icons/react'
 import type { ElementType } from 'react'
 
 const steps = [
     {
         phase: '01',
-        icon: WifiSlash,
+        icon: WifiSlashIcon,
         title: 'Offline, no signal',
         description: 'A worker records an incident by voice, photo, or text. The app transcribes it, tags severity, and saves everything on the device.',
         details: ['Whisper.rn transcribes voice', 'LLM classifies severity', 'Auto-drafts report', 'Compliance keywords flagged'],
     },
     {
         phase: '02',
-        icon: ArrowsClockwise,
+        icon: ArrowsClockwiseIcon,
         title: 'Sync when connection returns',
         description: 'As soon as the device reconnects, PowerSync sends local changes to Supabase and pulls down updates from the cloud. Conflicts are handled automatically.',
         details: ['Auto-detect connectivity', 'Bidirectional sync', 'Conflict resolution', 'Queue management'],
     },
     {
         phase: '03',
-        icon: CloudArrowUp,
+        icon: CloudArrowUpIcon,
         title: 'Cloud review',
         description: 'After sync, Mastra agents take a second look, flag urgent issues, prepare compliance notes, and summarize the shift.',
         details: ['Incident re-classification', 'Auto-escalation workflow', 'Compliance audit reports', 'Shift summary generation'],
     },
     {
         phase: '04',
-        icon: Monitor,
+        icon: MonitorIcon,
         title: 'Supervisor dashboard',
         description: 'Supervisors see incidents as soon as they arrive, review escalations, download reports, and follow activity across teams.',
         details: ['Real-time incident feed', 'Escalation approval', 'Downloadable reports', 'Worker status map'],
@@ -44,7 +45,7 @@ export default function HowItWorks() {
                 </div>
 
                 <div className="relative">
-                    <div className="absolute left-8 top-0 hidden h-full w-px border-l border-dashed md:block" />
+                    <div className="absolute left-8 top-0 hidden h-full border-l-2 border-dashed md:block" />
 
                     <div className="space-y-12 md:space-y-16">
                         {steps.map((step) => (
@@ -73,12 +74,12 @@ function PhaseStep({
     return (
         <div className="relative md:pl-20">
             <div className="absolute left-0 top-0 z-10 hidden md:block">
-                <div className="flex size-16 items-center justify-center rounded-none border border-dashed bg-background shadow-zinc-950/5">
+                <div className="flex size-16 items-center justify-center rounded-none border border-dashed bg-background ">
                     <Icon weight="bold" className="size-6 text-primary" />
                 </div>
             </div>
 
-            <div className="group relative rounded-none border border-dashed bg-card p-6 shadow-zinc-950/5 md:p-8">
+            <div className="group relative rounded-none border border-dashed bg-card p-6  md:p-8">
                 <span className="border-primary absolute -left-px -top-px block size-2 border-l-2 border-t-2"></span>
                 <span className="border-primary absolute -right-px -top-px block size-2 border-r-2 border-t-2"></span>
                 <span className="border-primary absolute -bottom-px -left-px block size-2 border-b-2 border-l-2"></span>

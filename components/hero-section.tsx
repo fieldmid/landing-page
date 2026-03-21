@@ -35,9 +35,9 @@ export default function HeroSection() {
     return (
         <>
             <HeroHeader />
-            <main className="relative h-screen overflow-hidden">
-                <section className="h-full">
-                    <div className="relative flex h-full flex-col pt-24">
+            <main className="relative overflow-x-hidden">
+                <section className="flex min-h-svh flex-col">
+                    <div className="relative flex flex-1 flex-col pt-24">
                         <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-6">
                             <div className="text-center sm:mx-auto lg:mx-auto lg:mt-0">
                                 <AnimatedGroup
@@ -53,8 +53,8 @@ export default function HeroSection() {
                                         ...transitionVariants,
                                     }}
                                     className="mb-3 flex items-center justify-center">
-                                    <span className="inline-flex items-center gap-2 rounded-full border border-dashed bg-muted/50 px-3 py-1 text-sm text-muted-foreground">
-                                        <WifiSlashIcon weight="bold" className="size-4" />
+                                    <span className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-dashed bg-muted/50 px-2.5 py-1 text-xs text-muted-foreground sm:px-3 sm:text-sm">
+                                        <WifiSlashIcon weight="bold" className="size-3.5 sm:size-4" />
                                         Works fully offline. Still useful when the signal drops.
                                     </span>
                                 </AnimatedGroup>
@@ -85,16 +85,14 @@ export default function HeroSection() {
                                         },
                                         ...transitionVariants,
                                     }}
-                                    className="mt-7 flex flex-wrap items-center justify-center gap-2 md:mt-8">
-                                    <div
-                                        key={1}
-                                        >
+                                    className="mt-7 flex flex-col items-center justify-center gap-2 sm:flex-row md:mt-8">
+                                    <div key={1}>
                                         <Button
                                             asChild
                                             size="lg"
                                             className="px-5 text-base">
                                             <Link href={`${CORE_URL}/sign-up?mode=individual`}>
-                                                <span className="text-nowrap">Get Started as Individual</span>
+                                                <span>Get Started as Individual</span>
                                             </Link>
                                         </Button>
                                     </div>
@@ -105,7 +103,7 @@ export default function HeroSection() {
                                         variant="outline"
                                         className="px-5 text-base">
                                         <Link href={`${CORE_URL}/sign-up?mode=organization`}>
-                                            <span className="text-nowrap">Create Organization Workspace</span>
+                                            <span>Create Organization Workspace</span>
                                         </Link>
                                     </Button>
                                 </AnimatedGroup>

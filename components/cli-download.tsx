@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { TerminalIcon, DownloadSimpleIcon } from '@phosphor-icons/react/dist/ssr'
+import { TerminalIcon, DownloadSimpleIcon } from '@phosphor-icons/react'
 import { Button } from '@/components/ui/button'
 
 const INSTALL_COMMAND = 'curl -fsSL https://downloads.fieldmid.dev/install.sh | sh'
@@ -20,9 +20,9 @@ export default function CliDownloadSection() {
     }
 
     return (
-        <section id="cli-download" className="bg-zinc-50 py-16 md:py-24 dark:bg-transparent">
+        <section id="cli-download" className="bg-muted/30 py-16 md:py-24">
             <div className="mx-auto max-w-5xl px-6">
-                <div className="relative overflow-hidden rounded-none border border-dashed bg-card p-6 shadow-zinc-950/5 md:p-10">
+                <div className="relative overflow-hidden rounded-none border border-dashed bg-card p-6 md:p-10">
                     <span className="border-primary absolute -left-px -top-px block size-2 border-l-2 border-t-2"></span>
                     <span className="border-primary absolute -right-px -top-px block size-2 border-r-2 border-t-2"></span>
                     <span className="border-primary absolute -bottom-px -left-px block size-2 border-b-2 border-l-2"></span>

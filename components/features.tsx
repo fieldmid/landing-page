@@ -1,12 +1,13 @@
+"use client"
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { FieldMidText } from '@/components/fieldmid-text'
 import { cn } from '@/lib/utils'
-import { WifiSlash, ArrowsClockwise, Brain, ChartBar } from '@phosphor-icons/react/dist/ssr'
+import { WifiSlashIcon, ArrowsClockwiseIcon, BrainIcon, ChartBarIcon } from '@phosphor-icons/react'
 import { type ReactNode, type ElementType } from 'react'
 
 export default function Features() {
     return (
-        <section id="features" className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
+        <section id="features" className="bg-muted/30 py-16 md:py-32">
             <div className="mx-auto max-w-2xl px-6 lg:max-w-5xl">
                 <div className="mx-auto mb-12 max-w-2xl text-center">
                     <h2 className="text-balance text-3xl font-semibold md:text-4xl">Made for places where signal is never guaranteed</h2>
@@ -14,11 +15,11 @@ export default function Features() {
                         From mines to remote sites, <FieldMidText className="text-lg" /> keeps incident reporting moving even when the network drops.
                     </p>
                 </div>
-                <div className="mx-auto grid gap-4 lg:grid-cols-2">
+                <div className="mx-auto grid gap-4 md:grid-cols-2">
                     <FeatureCard>
                         <CardHeader className="pb-3">
                             <CardHeading
-                                icon={WifiSlash}
+                                icon={WifiSlashIcon}
                                 title="Offline-First AI"
                                 description="Record an incident, speak naturally, and get a first pass triage right on the device. No connection needed."
                             />
@@ -36,14 +37,14 @@ export default function Features() {
                     <FeatureCard>
                         <CardHeader className="pb-3">
                             <CardHeading
-                                icon={ArrowsClockwise}
+                                icon={ArrowsClockwiseIcon}
                                 title="Reliable Sync"
                                 description="Everything is saved locally first. When the connection returns, PowerSync syncs changes both ways and handles conflicts in the background."
                             />
                         </CardHeader>
                         <CardContent className="mt-auto">
                             <div className="grid grid-cols-2 gap-3">
-                                <FeaturePill label="SQLite ↔ Postgres" />
+                                <FeaturePill label="SQLite <-> Postgres" />
                                 <FeaturePill label="Conflict resolution" />
                                 <FeaturePill label="Bidirectional sync" />
                                 <FeaturePill label="Sync Streams" />
@@ -54,7 +55,7 @@ export default function Features() {
                     <FeatureCard>
                         <CardHeader className="pb-3">
                             <CardHeading
-                                icon={Brain}
+                                icon={BrainIcon}
                                 title="Cloud Follow-Up"
                                 description="After sync, cloud agents can review incidents again, flag urgent cases, prepare audit notes, and summarize the shift."
                             />
@@ -72,7 +73,7 @@ export default function Features() {
                     <FeatureCard>
                         <CardHeader className="pb-3">
                             <CardHeading
-                                icon={ChartBar}
+                                icon={ChartBarIcon}
                                 title="Supervisor View"
                                 description="Supervisors can see new incidents as they arrive, review escalations, download reports, and track what is happening across sites."
                             />
@@ -99,7 +100,7 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = ({ children, className }: FeatureCardProps) => (
-    <Card className={cn('group relative h-full rounded-none shadow-zinc-950/5', className)}>
+    <Card className={cn('group relative h-full rounded-none', className)}>
         <CardDecorator />
         {children}
     </Card>

@@ -1,9 +1,15 @@
 import CliDownloadSection from '@/components/cli-download'
+import { HeroHeader } from '@/components/header'
+import FooterSection from '@/components/footer'
 
 export default function CliPage() {
   return (
-    <main className="bg-background pt-20">
-      <CliDownloadSection />
-    </main>
+    <>
+      <HeroHeader />
+      <main className="bg-background pt-20">
+        <CliDownloadSection />
+      </main>
+      <FooterSection />
+    </>
   )
 }
