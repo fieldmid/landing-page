@@ -38,6 +38,9 @@ export const HeroHeader = () => {
                                 <Link href="/cli" className={navLinkClassName}>
                                     CLI
                                 </Link>
+                                <Link href="/demo" className={navLinkClassName}>
+                                    Demo
+                                </Link>
                                 <Link href="/contact" className={navLinkClassName}>
                                     Contact
                                 </Link>
@@ -75,6 +78,9 @@ export const HeroHeader = () => {
                                     </Button>
                                     <Button asChild size="sm" variant="ghost" className="w-full justify-start">
                                         <Link href="/cli" onClick={() => setMenuState(false)}>CLI</Link>
+                                    </Button>
+                                    <Button asChild size="sm" variant="ghost" className="w-full justify-start">
+                                        <Link href="/demo" onClick={() => setMenuState(false)}>Demo</Link>
                                     </Button>
                                     <Button asChild size="sm" variant="ghost" className="w-full justify-start">
                                         <Link href="/contact" onClick={() => setMenuState(false)}>Contact</Link>
