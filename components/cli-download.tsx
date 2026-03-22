@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { TerminalIcon, DownloadSimpleIcon, CopyIcon, CheckIcon } from '@phosphor-icons/react'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 const INSTALL_COMMAND = 'curl -fsSL https://fieldmid.com/install.sh | sh'
 const CARGO_COMMAND = 'cargo install --git https://github.com/fieldmid/rust-edge-repo.git'
@@ -33,6 +34,14 @@ export default function CliDownloadSection() {
                     <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-dashed bg-muted/40 px-3 py-1 text-xs font-medium text-muted-foreground">
                         <TerminalIcon weight="bold" className="size-4" />
                         CLI for edge operators
+                    </div>
+
+                    <div className="mb-4 w-fit rounded-none border border-dashed bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-700 dark:text-amber-300">
+                        Note: Content below was added after 10:59 PM today.
+                    </div>
+
+                    <div className="mb-4 w-fit rounded-none border border-dashed bg-muted/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        CLI is in development
                     </div>
 
                     <h2 className="text-balance text-3xl font-semibold md:text-4xl">Install the FieldMid CLI</h2>
@@ -78,6 +87,20 @@ export default function CliDownloadSection() {
                             <p><span className="text-foreground">fieldmid latest-incidents</span>   <span className="text-muted-foreground/70"># View synced incidents</span></p>
                             <p><span className="text-foreground">fieldmid requests</span>           <span className="text-muted-foreground/70"># Approve/reject join requests</span></p>
                             <p><span className="text-foreground">fieldmid doctor</span>             <span className="text-muted-foreground/70"># Diagnose connectivity</span></p>
+                        </div>
+                    </div>
+
+                    <div className="mt-8 rounded-none border border-dashed bg-background p-4 md:p-5">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">CLI Screenshot</p>
+                        <p className="mt-2 text-sm text-muted-foreground">Latest visual preview of the CLI interface.</p>
+                        <div className="mt-4 overflow-hidden rounded-sm border border-dashed bg-black/90">
+                            <Image
+                                src="/cli.png"
+                                alt="FieldMid CLI screenshot"
+                                width={1366}
+                                height={768}
+                                className="h-auto w-full"
+                            />
                         </div>
                     </div>
 

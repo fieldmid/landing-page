@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { PlayCircle } from '@phosphor-icons/react/dist/ssr'
+import Image from 'next/image'
 
 import { HeroHeader } from '../../components/header'
 import FooterSection from '../../components/footer'
@@ -47,10 +48,37 @@ export default function DemoPage() {
               <PlayCircle className="size-4" weight="bold" />
               Product demos
             </span>
+            <p className="w-fit rounded-none border border-dashed bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-700 dark:text-amber-300">
+              Note: Content below was added after 10:59 PM today.
+            </p>
             <h1 className="max-w-3xl text-balance text-4xl font-semibold md:text-5xl">See FieldMid in action</h1>
             <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
               Quick videos for platform, CLI, and mobile. Add or replace the files in public when you want to update demos.
             </p>
+            <p className="w-fit rounded-none border border-dashed bg-muted/40 px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              CLI demo is in development
+            </p>
+          </div>
+        </section>
+
+        <section className="border-b border-dashed py-12 md:py-16">
+          <div className="mx-auto max-w-5xl px-6">
+            <article className="rounded-none border border-dashed bg-card p-4 md:p-6">
+              <h2 className="text-2xl font-semibold">CLI Screenshot</h2>
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Current preview of the CLI interface. This section is marked as in development.
+              </p>
+              <div className="mt-5 overflow-hidden rounded-sm border border-dashed bg-black/90">
+                <Image
+                  src="/cli.png"
+                  alt="FieldMid CLI screenshot"
+                  width={1366}
+                  height={768}
+                  className="h-auto w-full"
+                  priority
+                />
+              </div>
+            </article>
           </div>
         </section>
 
