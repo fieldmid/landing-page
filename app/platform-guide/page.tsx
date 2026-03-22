@@ -1,18 +1,13 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { ArrowsClockwise, ChartBar, Monitor, WifiSlash } from '@phosphor-icons/react/dist/ssr'
 
 import FooterSection from '@/components/footer'
 import { HeroHeader } from '@/components/header'
-import { Button } from '@/components/ui/button'
-
-const CORE_URL = process.env.NEXT_PUBLIC_CORE_URL!
 
 type RolePlaybook = {
     role: 'Field Worker' | 'Supervisor' | 'Organization Admin'
     summary: string
     icon: React.ComponentType<{ className?: string; weight?: 'bold' }>
-    entryPath: string
     steps: string[]
     checkpoints: string[]
 }
@@ -22,7 +17,6 @@ const rolePlaybooks: RolePlaybook[] = [
         role: 'Field Worker',
         summary: 'Capture incidents offline, sync safely, and keep your shift log complete.',
         icon: WifiSlash,
-        entryPath: '/dashboard/worker',
         steps: [
             'Sign up and join your organization workspace after approval by your supervisor or admin.',
             'Use the mobile app in the field to capture incident notes, voice, and photos even without signal.',
@@ -35,7 +29,6 @@ const rolePlaybooks: RolePlaybook[] = [
         role: 'Supervisor',
         summary: 'Run live operations by triaging incidents, escalations, and team access.',
         icon: Monitor,
-        entryPath: '/dashboard/supervisor',
         steps: [
             'Start in Incident Feed to monitor new field incidents from assigned sites in realtime.',
             'Open Escalations to acknowledge urgent items and clear the unacknowledged queue.',
@@ -48,7 +41,6 @@ const rolePlaybooks: RolePlaybook[] = [
         role: 'Organization Admin',
         summary: 'Configure workspace structure, govern user roles, and keep operations compliant.',
         icon: ChartBar,
-        entryPath: '/dashboard/admin',
         steps: [
             'Create your organization in onboarding and set the first primary site.',
             'Open Users to assign or adjust operational roles between Field Worker and Supervisor.',
@@ -114,14 +106,6 @@ export default function PlatformGuidePage() {
                             </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-2">
-                            <Button asChild size="lg">
-                                <Link href={`${CORE_URL}/sign-up?mode=individual`}>Start as individual</Link>
-                            </Button>
-                            <Button asChild size="lg" variant="outline">
-                                <Link href={`${CORE_URL}/sign-up?mode=organization`}>Create organization workspace</Link>
-                            </Button>
-                        </div>
                     </div>
                 </section>
 
@@ -185,9 +169,6 @@ export default function PlatformGuidePage() {
                                             </ul>
                                         </div>
 
-                                        <Button asChild variant="outline" className="mt-5 w-full">
-                                            <Link href={`${CORE_URL}${playbook.entryPath}`}>Open {playbook.role} dashboard</Link>
-                                        </Button>
                                     </article>
                                 )
                             })}
@@ -202,14 +183,6 @@ export default function PlatformGuidePage() {
                             <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
                                 Use this page as your operating checklist during rollout, then track adoption through the role dashboards.
                             </p>
-                            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-                                <Button asChild>
-                                    <Link href="/contact">Talk to us</Link>
-                                </Button>
-                                <Button asChild variant="outline">
-                                    <Link href="/">Back to landing page</Link>
-                                </Button>
-                            </div>
                         </div>
                     </div>
                 </section>
