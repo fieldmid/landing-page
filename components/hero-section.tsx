@@ -106,6 +106,16 @@ export default function HeroSection() {
                                             <span>Create Organization Workspace</span>
                                         </Link>
                                     </Button>
+                                    <Button
+                                        key={3}
+                                        asChild
+                                        size="lg"
+                                        variant="ghost"
+                                        className="px-5 text-base">
+                                        <Link href="/platform-guide">
+                                            <span>View Role Guide</span>
+                                        </Link>
+                                    </Button>
                                 </AnimatedGroup>
                             </div>
                         </div>

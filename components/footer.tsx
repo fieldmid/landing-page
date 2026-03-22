@@ -10,6 +10,7 @@ const links = [
         items: [
             { title: 'Features', href: '#features' },
             { title: 'How It Works', href: '#how-it-works' },
+            { title: 'Platform Guide', href: '/platform-guide' },
             { title: 'Download CLI', href: '/cli' },
         ],
     },
