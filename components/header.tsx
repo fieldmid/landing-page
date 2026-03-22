@@ -29,6 +29,9 @@ export const HeroHeader = () => {
 
                         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center sm:flex">
                             <div className="flex items-center gap-4">
+                                <Link href="/architecture" className={navLinkClassName}>
+                                    Architecture
+                                </Link>
                                 <Link href="/platform-guide" className={navLinkClassName}>
                                     Platform Guide
                                 </Link>
@@ -64,6 +67,9 @@ export const HeroHeader = () => {
                         {menuState && (
                             <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg border border-dashed bg-background p-3 shadow-lg sm:hidden">
                                 <div className="flex flex-col gap-2">
+                                    <Button asChild size="sm" variant="ghost" className="w-full justify-start">
+                                        <Link href="/architecture" onClick={() => setMenuState(false)}>Architecture</Link>
+                                    </Button>
                                     <Button asChild size="sm" variant="ghost" className="w-full justify-start">
                                         <Link href="/platform-guide" onClick={() => setMenuState(false)}>Platform Guide</Link>
                                     </Button>
